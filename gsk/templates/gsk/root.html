@@ -1,5 +1,5 @@
 {% extends "gsk/base.html" %}
 
-{% block title %}This is root page{% endblock %}
+{% block title %}{% block content_title %}This is root page{% endblock %}{% endblock %}
 
 {% block content %}123456{% endblock %}
