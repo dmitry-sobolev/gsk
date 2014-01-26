@@ -1,5 +1,26 @@
 {% extends "gsk/base.html" %}
 
-{% block title %}{% block content_title %}This is root page{% endblock %}{% endblock %}
+{% block title %}{% block content_title %}Список гаражей{% endblock %}{% endblock %}
 
-{% block content %}123456{% endblock %}
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <th>№ гаража</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Телефон</th>
+            <th>Площадь гаража</th>
+        </tr>
+        {% for garage in garages %}
+            <tr>
+                <td>{{ garage.number }}</td>
+                <td>{{ garage.last_name }}</td>
+                <td>{{ garage.first_name }}</td>
+                <td>{{ garage.second_name }}</td>
+                <td>{{ garage.phone }}</td>
+                <td>{{ garage.area }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
