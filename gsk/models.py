@@ -1,20 +1,24 @@
+# coding=utf-8
 from django.db import models
 
 
 class Garage(models.Model):
-    number = models.PositiveIntegerField(verbose_name=u'', max_length=5)
+    number = models.PositiveIntegerField(verbose_name=u'Номер', max_length=5)
 
-    first_name = models.CharField(verbose_name=u'', max_length=50)
-    second_name = models.CharField(verbose_name=u'', max_length=50)
-    last_name = models.CharField(verbose_name=u'', max_length=50)
-    address = models.CharField(verbose_name=u'', max_length=50)
-    phone = models.CharField(verbose_name=u'', max_length=50)
-    passport_data = models.TextField(verbose_name=u'')
+    first_name = models.CharField(verbose_name=u'Имя', max_length=50)
+    second_name = models.CharField(verbose_name=u'Фамилия', max_length=50)
+    last_name = models.CharField(verbose_name=u'Отчетство', max_length=50)
+    address = models.CharField(verbose_name=u'Адрес', max_length=255)
+    phone = models.CharField(verbose_name=u'Телефон', max_length=50)
+    passport_data = models.TextField(verbose_name=u'Паспортные данные')
 
-    length = models.FloatField(verbose_name=u'')
-    width = models.FloatField(verbose_name=u'')
+    length = models.FloatField(verbose_name=u'Длина')
+    width = models.FloatField(verbose_name=u'Ширина')
 
-    electric_meter_number = models.CharField(verbose_name=u'', max_length=50)
+    electric_meter_number = models.CharField(verbose_name=u'Номер электросчетчика', max_length=50)
+
+    def area(self):
+        return self.length * self.width
 
 
 class Pass(models.Model):
